@@ -1,0 +1,54 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+*.egg
+dist/
+build/
+*.whl
+.eggs/
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Results & logs
+results/
+*.log
+*.log.*
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Coverage
+htmlcov/
+.coverage
+.coverage.*
+coverage.xml
+
+# mypy / pyright
+.mypy_cache/
+.pyright/
+
+# pytest
+.pytest_cache/
+
+# Ruff
+.ruff_cache/

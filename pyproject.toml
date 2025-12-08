@@ -1,0 +1,21 @@
+[project]
+name = "llm-gateway"
+version = "0.1.0"
+description = "Unified multi-provider LLM gateway"
+requires-python = ">=3.11"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+asyncio_mode = "auto"
+filterwarnings = ["ignore::DeprecationWarning"]
+
+[tool.ruff]
+line-length = 120
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "B", "S", "T", "UP", "SIM", "RUF", "TC"]
+ignore = ["S101", "S104", "B008", "B904", "E731", "B905", "TC001", "TC002", "TC003", "SIM108", "RUF005", "T201"]
+
+[tool.ruff.lint.isort]
+known-first-party = ["src"]
