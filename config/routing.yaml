@@ -1,0 +1,53 @@
+routing:
+  default_provider: openai
+  fallback_chains:
+    high_quality:
+      providers:
+        - anthropic
+        - openai
+        - bedrock
+    fast:
+      providers:
+        - openai
+        - anthropic
+        - ollama
+    cost_optimized:
+      providers:
+        - ollama
+        - openai
+        - anthropic
+    embeddings:
+      providers:
+        - openai
+        - vertex
+  model_mapping:
+    gpt-4:
+      alias: gpt-4
+      provider: openai
+      model: gpt-4o
+    claude:
+      alias: claude
+      provider: anthropic
+      model: claude-sonnet-4-20250514
+    claude-haiku:
+      alias: claude-haiku
+      provider: anthropic
+      model: claude-haiku-4-20250414
+    local:
+      alias: local
+      provider: ollama
+      model: llama3.1
+
+caching:
+  enabled: false
+  backend: redis
+  redis_url: "redis://localhost:6379/0"
+  ttl_seconds: 3600
+  max_size: 10000
+
+rate_limit:
+  enabled: false
+  requests_per_minute: 60
+  tokens_per_minute: 100000
+  backend: memory
+  redis_url: "redis://localhost:6379/1"

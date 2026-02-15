@@ -1,0 +1,108 @@
+providers:
+  openai:
+    enabled: true
+    api_key: "${OPENAI_API_KEY:}"
+    api_base: "https://api.openai.com/v1"
+    timeout: 60
+    max_retries: 3
+    models:
+      - name: gpt-4o
+        enabled: true
+        max_tokens: 16384
+        context_window: 128000
+      - name: gpt-4o-mini
+        enabled: true
+        max_tokens: 16384
+        context_window: 128000
+      - name: gpt-4-turbo
+        enabled: true
+        max_tokens: 4096
+        context_window: 128000
+      - name: gpt-3.5-turbo
+        enabled: true
+        max_tokens: 4096
+        context_window: 16385
+      - name: text-embedding-3-small
+        enabled: true
+        max_tokens: 8191
+        context_window: 8191
+      - name: text-embedding-3-large
+        enabled: true
+        max_tokens: 8191
+        context_window: 8191
+
+  anthropic:
+    enabled: true
+    api_key: "${ANTHROPIC_API_KEY:}"
+    api_base: "https://api.anthropic.com"
+    timeout: 120
+    max_retries: 3
+    models:
+      - name: claude-sonnet-4-20250514
+        enabled: true
+        max_tokens: 8192
+        context_window: 200000
+      - name: claude-haiku-4-20250414
+        enabled: true
+        max_tokens: 8192
+        context_window: 200000
+      - name: claude-opus-4-20250514
+        enabled: true
+        max_tokens: 8192
+        context_window: 200000
+
+  azure:
+    enabled: false
+    api_key: "${AZURE_OPENAI_API_KEY:}"
+    api_base: "${AZURE_OPENAI_ENDPOINT:}"
+    api_version: "2024-06-01"
+    deployment: "${AZURE_OPENAI_DEPLOYMENT:}"
+    timeout: 60
+    max_retries: 3
+    models:
+      - name: gpt-4o
+        enabled: true
+        max_tokens: 16384
+        context_window: 128000
+
+  bedrock:
+    enabled: false
+    region: "${AWS_REGION:us-east-1}"
+    timeout: 120
+    max_retries: 3
+    models:
+      - name: anthropic.claude-sonnet-4-20250514-v1:0
+        enabled: true
+        max_tokens: 8192
+        context_window: 200000
+      - name: anthropic.claude-haiku-4-20250414-v1:0
+        enabled: true
+        max_tokens: 8192
+        context_window: 200000
+
+  vertex:
+    enabled: false
+    project_id: "${GCP_PROJECT_ID:}"
+    region: "${GCP_REGION:us-central1}"
+    timeout: 120
+    max_retries: 3
+    models:
+      - name: gemini-2.0-flash
+        enabled: true
+        max_tokens: 8192
+        context_window: 1000000
+
+  ollama:
+    enabled: false
+    api_base: "http://localhost:11434"
+    timeout: 300
+    max_retries: 1
+    models:
+      - name: llama3.1
+        enabled: true
+        max_tokens: 4096
+        context_window: 128000
+      - name: mistral
+        enabled: true
+        max_tokens: 4096
+        context_window: 32000
